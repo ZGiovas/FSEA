@@ -17,8 +17,8 @@ services:
       context: ./fsea-app/fsea-django-app
     container_name: fsea-django
     restart: always
-    environment:
-      - ENVIRONMENT=dev
+    env_file:
+      - .env.dev
     depends_on:
       - db
     ports:

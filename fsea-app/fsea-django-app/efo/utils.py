@@ -4,6 +4,7 @@ from efo.models import EFOTerm, EFOSynonym
 OLS_EFO_URL = "https://www.ebi.ac.uk/ols/api/ontologies/efo/terms"
 
 def fetch_efo_terms(max_pages=None):
+    print('Fetching started')
     next_page_url = OLS_EFO_URL
     fetched_ids = set()
     page_count = 0 # Use page_count to limit pages for development reasons
