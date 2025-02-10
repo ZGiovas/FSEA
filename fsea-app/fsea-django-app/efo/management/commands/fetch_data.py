@@ -6,10 +6,10 @@ class Command(BaseCommand):
     help = "Fetching EFO Data"
 
     def add_arguments(self, parser):
-        parser.add_argument("page_no", nargs=1, type=int)
+        parser.add_argument("max_pages", nargs=1, type=int)
 
     def handle(self, *args, **options):
-        print(options) 
+        fetch_efo_terms(options['max_pages'])
         self.stdout.write(
-            self.style.SUCCESS('Successfully closed poll "%s"' % poll_id)
+            self.style.SUCCESS(f'Successfully downloaded data for {options['max_pages']} pages')
         )
