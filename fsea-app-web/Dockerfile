@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 5173
 
 # Start the development server
-RUN npm run build
+CMD ["npm", "run", "build"]
