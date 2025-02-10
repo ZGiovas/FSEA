@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Input } from 'antd';
 import { debounce } from 'lodash';
 
@@ -20,6 +20,12 @@ const SearchField: React.FC<SearchFieldProps> = ({ onSearch }) => {
     setSearchValue(e.target.value);
     debouncedSearch(e.target.value);
   };
+
+  useEffect(() => {
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [debouncedSearch]);
 
   return (
     <Input
