@@ -29,20 +29,5 @@ services:
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
 
-  vite:
-    build:
-      context: ./fsea-app-web
-    container_name: fsea-vite
-    restart: always
-    environment:
-      - ENVIRONMENT=dev
-    ports:
-      - '5173:5173'
-    volumes:
-      - ./fsea-app-web:/app
-    depends_on:
-      - django
-    command: ['npm', 'run', 'dev']
-
 volumes:
   postgres_data:
