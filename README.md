@@ -1,28 +1,66 @@
-# FSEA
+# 🌟 Full-Stack Engineer Assessment (FSEA)
 
-Full-Stack Engineer Assessment
+Follow the steps below to set up and run the project.
 
-## Step 1:
+---
 
-### Option 1: Run dockerized DB and Django App
+## 🚀 Step 1: Run the Backend (fsea-app)
 
-- Create a .env.dev based on all .env.sample files (root, fsea-app/fsea-django-app, fsea-app-web)
-- Run `docker-compose up`
+You have two options to run the backend:
 
-### Option 2: Run fsea-app locally
+### 🔹 Option 1: Run with Docker (Recommended)
 
-- Open Terminal in root folder of project (in Windows you might need administrator privileges)
-- Navigate to folder fsea-django-app
-- Create a virtualenv and install requirements using `pip install -r requirements.txt`
-- To create DB, type `manage.py migrate`
-- To run server, type `manage.py runserver`
-- Server should be up and running at port 8000 of localhost
+1. Create a `.env.dev` file based on all `.env.sample` files in:
+   - Root directory
+   - `fsea-app/fsea-django-app`
+   - `fsea-app-web`
+2. Start the services by running:
+   ```sh
+   docker-compose up
+   ```
+3. The server should be up and running at **http://localhost:8000**
 
-## Step 2: Run fsea-app-web
+### 🔹 Option 2: Run Locally (Manual Setup)
 
-- Be sure that _fsea-app_ is running
-- Open terminal in root folder of project
-- Navigate to folder fsea-app-web
-- Install packages via `npm install`
-- To run development, type `npm run dev`
-- Application should be running at 5173 of localhost
+1. Open a terminal in the project's root folder (Windows users may need administrator privileges).
+2. Navigate to the `fsea-django-app` directory:
+   ```sh
+   cd fsea-app/fsea-django-app
+   ```
+3. Create a virtual environment and install dependencies:
+   ```sh
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
+4. Set up the database:
+   ```sh
+   python manage.py migrate
+   ```
+5. Start the Django server:
+   ```sh
+   python manage.py runserver
+   ```
+6. The server should now be running at **http://localhost:8000**
+
+---
+
+## 🌐 Step 2: Run the Frontend (fsea-app-web)
+
+1. Ensure the **backend (fsea-app)** is running.
+2. Open a terminal in the root folder of the project.
+3. Navigate to the `fsea-app-web` directory:
+   ```sh
+   cd fsea-app-web
+   ```
+4. Install dependencies:
+   ```sh
+   npm install
+   ```
+5. Start the frontend development server:
+   ```sh
+   npm run dev
+   ```
+6. The application should now be running at **http://localhost:5173** 🚀
+
+---
